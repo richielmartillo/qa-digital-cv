@@ -1,0 +1,750 @@
+@media(min-width:1700px) {
+  :root {
+    --rail:274px;
+    --section-pad:78px;
+    --header:86px;
+  }
+  .sidebar {
+    padding:37px 28px;
+  }
+  .brand {
+    padding-bottom:60px;
+  }
+  .sidebar nav a {
+    min-height:52px;
+    font-size:13px;
+  }
+  .topbar {
+    padding-inline:56px;
+  }
+  .hero {
+    padding-top:90px;
+    gap:60px;
+    padding-bottom:0;
+  }
+  .hero-bottom {
+    margin-top:28px;
+  }
+  .hero-description {
+    font-size:14px;
+  }
+  .hero-intro {
+    font-size:25px;
+  }
+  .system-panel {
+    max-width:440px;
+  }
+  .radar {
+    height:320px;
+  }
+  .orbit-one {
+    width:262px;
+    height:262px;
+  }
+  .orbit-two {
+    width:218px;
+    height:218px;
+  }
+  .orbit-three {
+    width:184px;
+    height:184px;
+  }
+  .radar-core {
+    width:147px;
+    height:147px;
+  }
+  .point-one {
+    top:64px;
+    left:calc(50% + 88px);
+  }
+  .point-two {
+    bottom:82px;
+    left:calc(50% - 94px);
+  }
+  .terminal {
+    font-size:9px;
+  }
+  .section {
+    padding-top:90px;
+    padding-bottom:90px;
+  }
+  .hero {
+    padding-bottom:0;
+  }
+}
+
+@media(max-width:1200px) {
+  :root {
+    --rail:215px;
+    --section-pad:38px;
+  }
+  .sidebar {
+    padding:27px 15px;
+  }
+  .brand {
+    gap:8px;
+  }
+  .brand-text {
+    font-size:10px;
+  }
+  .brand-text small {
+    font-size:7px;
+  }
+  .topbar {
+    padding-inline:28px;
+  }
+  .topbar>p {
+    font-size:8px;
+    gap:7px;
+  }
+  .topbar-divider {
+    margin-inline:2px;
+  }
+  .topbar-actions {
+    gap:12px;
+  }
+  .hero {
+    gap:26px;
+  }
+  h1 {
+    font-size:45px;
+    letter-spacing:-2px;
+  }
+  .hero .eyebrow {
+    font-size:8px;
+    letter-spacing:1.2px;
+  }
+  .role-label {
+    font-size:8px;
+    letter-spacing:1.2px;
+  }
+  .hero-intro {
+    font-size:20px;
+  }
+  .radar {
+    height:260px;
+  }
+  .orbit-one {
+    width:209px;
+    height:209px;
+  }
+  .orbit-two {
+    width:178px;
+    height:178px;
+  }
+  .orbit-three {
+    width:151px;
+    height:151px;
+  }
+  .radar-core {
+    width:123px;
+    height:123px;
+  }
+  .point-one {
+    top:53px;
+    left:calc(50% + 69px);
+  }
+  .point-two {
+    bottom:66px;
+    left:calc(50% - 76px);
+  }
+  .panel-header {
+    padding-inline:12px;
+    font-size:7px;
+  }
+  .panel-id {
+    font-size:6px;
+  }
+  .terminal {
+    font-size:7px;
+    margin-inline:12px;
+  }
+  .hero-actions {
+    gap:9px;
+  }
+  .button {
+    padding-inline:13px;
+    gap:18px;
+  }
+  .hero-bottom {
+    font-size:7px;
+    letter-spacing:.5px;
+  }
+  .about-grid {
+    gap:30px;
+  }
+  .languages {
+    gap:22px;
+  }
+  .timeline-item {
+    grid-template-columns:153px 1fr;
+    gap:20px;
+  }
+  .section-heading {
+    gap:12px;
+  }
+  .section-code {
+    font-size:7px;
+  }
+  .contact-grid {
+    gap:30px;
+  }
+  .project-body {
+    padding:22px;
+  }
+  .code-art {
+    font-size:9px;
+  }
+  .response-art {
+    font-size:6px;
+  }
+  .request-art {
+    font-size:9px;
+    padding-inline:9px;
+    gap:8px;
+  }
+}
+
+@media(max-width:1000px) {
+  :root {
+    --rail:190px;
+    --section-pad:30px;
+  }
+  .sidebar {
+    padding-inline:12px;
+  }
+  .brand-text {
+    font-size:9px;
+    letter-spacing:.5px;
+  }
+  .brand-mark {
+    width:33px;
+    height:39px;
+    flex-shrink:0;
+  }
+  .brand-text small {
+    font-size:6px;
+    letter-spacing:1px;
+  }
+  .sidebar nav a {
+    gap:10px;
+    font-size:11px;
+    padding-inline:10px;
+  }
+  .sidebar .nav-label {
+    font-size:8px;
+    padding-left:10px;
+  }
+  .sidebar-bottom {
+    padding-inline:5px;
+  }
+  .sidebar-bottom>p {
+    font-size:7px;
+  }
+  .sidebar-social {
+    gap:20px;
+  }
+  .topbar {
+    padding-inline:25px;
+  }
+  .topbar>p .muted,.topbar-divider {
+    display:none;
+  }
+  .hero {
+    grid-template-columns:1fr;
+    padding-top:48px;
+    gap:30px;
+  }
+  .hero-copy {
+    max-width:590px;
+  }
+  h1 {
+    font-size:60px;
+  }
+  .system-panel {
+    display:none;
+  }
+  .hero-description {
+    max-width:460px;
+  }
+  .hero-bottom {
+    margin-top:0;
+  }
+  .about-grid {
+    grid-template-columns:1fr;
+    gap:27px;
+  }
+  .profile-notes {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:17px;
+  }
+  .profile-notes>div {
+    display:block;
+    padding:0 0 15px;
+  }
+  .note-index {
+    display:block;
+    margin-bottom:8px;
+  }
+  .profile-notes strong {
+    font-size:12px;
+  }
+  .profile-notes p>span {
+    font-size:11px;
+  }
+  .languages {
+    flex-wrap:wrap;
+    gap:14px 22px;
+  }
+  .languages>.nav-label {
+    width:100%;
+  }
+  .skills-grid {
+    gap:12px;
+  }
+  .skill-card {
+    padding:22px;
+  }
+  .timeline-item {
+    grid-template-columns:1fr;
+    gap:12px;
+    padding-bottom:33px;
+  }
+  .timeline-date {
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .timeline-date p {
+    margin:0;
+  }
+  .company>span {
+    display:block;
+    margin-top:4px;
+  }
+  .projects-grid {
+    grid-template-columns:1fr;
+  }
+  .project-visual {
+    height:195px;
+  }
+  .code-art {
+    font-size:12px;
+    padding-top:15px;
+  }
+  .request-art {
+    max-width:330px;
+    font-size:12px;
+  }
+  .response-art {
+    font-size:8px;
+  }
+  .education-list {
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  .courses ul {
+    grid-template-columns:1fr;
+  }
+  .contact-grid {
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .contact-links {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+  .contact-links>a:first-child {
+    padding-top:17px;
+  }
+  .footer {
+    padding-inline:30px;
+    flex-wrap:wrap;
+  }
+  .footer p:nth-child(2) {
+    display:none;
+  }
+  .footer>a {
+    display:block;
+  }
+  .section-code {
+    display:none;
+  }
+}
+
+@media(max-width:700px) {
+  :root {
+    --rail:0px;
+    --header:65px;
+    --section-pad:24px;
+  }
+  html {
+    scroll-padding-top:146px;
+  }
+  .sidebar {
+    position:sticky;
+    inset:0 0 auto;
+    width:100%;
+    height:auto;
+    min-height:70px;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    padding:14px 22px;
+    background:var(--sidebar);
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+  .brand {
+    padding:0;
+  }
+  .brand-mark {
+    height:36px;
+    width:34px;
+    font-size:25px;
+  }
+  .brand-text {
+    font-size:10px;
+    letter-spacing:1px;
+  }
+  .brand-text small {
+    font-size:6px;
+    letter-spacing:1.6px;
+  }
+  .js-enabled .menu-toggle {
+    display:inline-flex!important;
+    align-items:center;
+    gap:16px;
+    background:transparent;
+    border:1px solid var(--border);
+    padding:7px 10px;
+    min-height:36px;
+    font-size:11px;
+  }
+  .menu-toggle span {
+    color:var(--gold);
+  }
+  .sidebar-content {
+    width:100%;
+    flex:auto;
+  }
+  .sidebar .nav-label,.sidebar-bottom {
+    display:none;
+  }
+  .sidebar nav {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:3px;
+    margin-top:14px;
+  }
+  .js-enabled .sidebar-content {
+    display:none;
+  }
+  .js-enabled .sidebar-content.is-open {
+    display:flex;
+  }
+  .sidebar nav a {
+    min-height:42px;
+    font-size:12px;
+  }
+  .workspace {
+    margin:0;
+  }
+  .topbar {
+    top:65px;
+    padding-inline:24px;
+    height:65px;
+    gap:8px;
+  }
+  .topbar>p {
+    font-size:7px;
+    letter-spacing:.7px;
+    gap:7px;
+  }
+  .topbar-actions {
+    gap:10px;
+  }
+  .theme-toggle,.print-button {
+    min-height:38px;
+    font-size:10px;
+  }
+  .theme-toggle {
+    gap:5px;
+  }
+  .theme-toggle .theme-label {
+    font-size:9px;
+  }
+  .theme-toggle .theme-label::after {
+    content:none;
+    font-size:9px;
+  }
+  html[data-theme="minimalista"] .theme-toggle .theme-label::after {
+    content:none;
+  }
+  .print-button {
+    padding:7px 9px;
+    gap:6px;
+  }
+  .section {
+    padding-block:51px;
+  }
+  .hero {
+    padding-top:43px;
+    padding-bottom:0;
+    gap:29px;
+  }
+  .hero .eyebrow {
+    margin-bottom:27px;
+    font-size:8px;
+  }
+  .role-label {
+    font-size:8px;
+    letter-spacing:1.3px;
+  }
+  h1 {
+    font-size:clamp(37px,10.5vw,65px);
+    letter-spacing:-2px;
+    white-space:normal;
+  }
+  .hero-intro {
+    font-size:21px;
+    margin-top:23px;
+  }
+  .hero-description {
+    font-size:12px;
+    margin-top:14px;
+  }
+  .location {
+    font-size:9px;
+    gap:5px;
+    line-height:1.7;
+    margin-top:20px;
+  }
+  .hero-actions {
+    gap:10px;
+    margin-top:24px;
+  }
+  .button {
+    font-size:10px;
+    gap:18px;
+    padding:11px 13px;
+  }
+  .hero-bottom {
+    padding:20px 0;
+    margin:0;
+    flex-wrap:wrap;
+    gap:15px;
+  }
+  .hero-bottom>span {
+    font-size:6px;
+    letter-spacing:.9px;
+  }
+  .hero-bottom>a {
+    font-size:10px;
+    gap:14px;
+  }
+  .eyebrow {
+    font-size:8px;
+    letter-spacing:1.6px;
+    margin-bottom:17px;
+  }
+  .section-heading {
+    margin-bottom:25px;
+  }
+  .section-heading .eyebrow {
+    margin-bottom:14px;
+  }
+  h2 {
+    font-size:29px;
+    letter-spacing:-1px;
+    line-height:1.2;
+  }
+  .about-copy .lead {
+    font-size:17px;
+  }
+  .about-copy p {
+    font-size:12px;
+  }
+  .profile-notes {
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  .profile-notes>div {
+    display:flex;
+    gap:17px;
+    padding:15px 0;
+  }
+  .note-index {
+    margin:0;
+  }
+  .profile-notes strong {
+    font-size:13px;
+  }
+  .profile-notes p>span {
+    font-size:12px;
+  }
+  .languages {
+    gap:14px 24px;
+    margin-top:25px;
+  }
+  .languages>p {
+    font-size:10px;
+  }
+  .languages strong {
+    margin-left:6px;
+  }
+  .skills-grid {
+    grid-template-columns:1fr;
+    gap:13px;
+  }
+  .skill-card {
+    padding:24px;
+  }
+  .card-symbol {
+    margin-bottom:19px;
+  }
+  .skill-card-wide {
+    grid-column:auto;
+    display:block;
+  }
+  .skill-card-wide>.card-symbol {
+    margin-bottom:19px;
+  }
+  .skill-card-wide p {
+    margin-bottom:20px;
+  }
+  .section-description {
+    font-size:12px;
+  }
+  .timeline-item {
+    padding-left:20px;
+  }
+  .timeline-content h3 {
+    font-size:18px;
+  }
+  .timeline-content li {
+    font-size:12px;
+  }
+  .timeline-date p {
+    font-size:10px;
+  }
+  .company>span {
+    display:inline;
+    margin-top:0;
+  }
+  .project-visual {
+    height:181px;
+    padding:18px;
+  }
+  .code-art {
+    font-size:9px;
+    padding-top:19px;
+  }
+  .request-art {
+    font-size:10px;
+    margin-top:23px;
+    padding:13px 9px;
+  }
+  .response-art {
+    font-size:6px;
+  }
+  .project-body {
+    padding:23px;
+  }
+  .project-body h3 {
+    font-size:20px;
+  }
+  .education-list article {
+    gap:16px;
+    padding-block:24px;
+  }
+  .education-list h3 {
+    font-size:18px;
+  }
+  .courses summary {
+    font-size:12px;
+    padding:17px;
+  }
+  .courses ul {
+    padding:0 17px 10px;
+  }
+  .contact-grid h2 {
+    font-size:39px;
+  }
+  .contact-grid p {
+    font-size:12px;
+  }
+  .contact-links {
+    gap:20px;
+  }
+  .contact-links>a {
+    font-size:22px;
+  }
+  .contact-links small {
+    font-size:6px;
+    letter-spacing:1px;
+  }
+  .contact-location {
+    font-size:8px;
+    line-height:1.9;
+    margin-top:30px;
+  }
+  .footer {
+    padding:22px 24px;
+    font-size:8px;
+    gap:12px;
+  }
+  .back-to-top {
+    right:16px;
+    bottom:16px;
+    width:38px;
+    height:38px;
+  }
+  .noscript-note {
+    margin-left:0;
+  }
+  .sidebar-content.is-open {
+    max-height:calc(100dvh - 90px);
+    overflow-y:auto;
+  }
+}
+
+@media(max-width:1200px) {
+  .topbar>p { display:none; }
+  .topbar-actions { margin-left:auto; gap:10px; }
+}
+@media(max-width:700px) {
+  .topbar { padding-inline:12px; }
+  .topbar-actions { width:100%; justify-content:space-between; gap:6px; }
+  .theme-toggle,.print-button { min-height:44px; }
+  .theme-toggle { min-width:44px; }
+  .print-button { font-size:9px; padding-inline:6px; }
+  .language-picker button { padding-inline:7px; }
+  #language-options { left:0; right:auto; max-width:calc(100vw - 24px); }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior:auto;
+  }
+}
+
+/* Keep the second sticky bar below the 70px mobile identity bar. */
+@media(max-width:700px) {
+  .sidebar {
+    position:relative;
+  }
+  .js-enabled .sidebar {
+    position:sticky;
+  }
+  .topbar {
+    top:70px;
+  }
+  html:not(.js-enabled) .topbar {
+    position:static;
+  }
+}

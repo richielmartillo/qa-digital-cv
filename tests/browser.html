@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>CV browser checks</title>
+<body><pre id="results">RUNNING</pre><iframe id="cv" src="../index.html" title="Résumé under test" style="width:1280px;height:900px"></iframe>
+<script>
+const frame = document.querySelector('#cv');
+const results = document.querySelector('#results');
+const checks = [];
+const errors = [];
+function check(condition, label) { if (!condition) throw new Error(label); checks.push('PASS ' + label); }
+function load() { return new Promise(resolve => frame.addEventListener('load', resolve, { once: true })); }
+function monitor() {
+  frame.contentWindow.addEventListener('error', event => errors.push(event.message));
+  frame.contentWindow.addEventListener('unhandledrejection', event => errors.push(String(event.reason)));
+}
+function choose(lang) {
+  const doc = frame.contentDocument;
+  doc.querySelector('#language-toggle').click();
+  doc.querySelector(`[data-language="${lang}"]`).click();
+}
+function coverage(lang) {
+  const doc = frame.contentDocument;
+  const dict = frame.contentWindow.CV_LOCALES[lang];
+  doc.querySelectorAll('[data-i18n]').forEach(element => {
+    if (element.matches('.theme-label,.print-button')) return;
+    element.dataset.i18n.split(' ').forEach(key => {
+      check([...element.childNodes].some(node => node.nodeType === 3 && node.textContent.trim() === dict[key]), `${lang}: ${key}`);
+    });
+  });
+  check(!/\bt\d{3}\b/.test(doc.body.innerText), 'No translation keys visible');
+}
+(async () => {
+  await load();
+  const win = frame.contentWindow;
+  win.localStorage.removeItem('cv-language');
+  let loaded = load(); win.location.reload(); await loaded;
+  monitor();
+  const doc = frame.contentDocument;
+  check(doc.documentElement.lang === 'pt-BR', 'Default Portuguese'); coverage('pt-BR');
+  for (const lang of ['es-AR', 'en', 'pt-BR']) {
+    choose(lang); check(doc.documentElement.lang === lang, 'Switch to ' + lang); coverage(lang);
+  }
+  choose('en');
+  doc.querySelector('.theme-toggle').click();
+  check(doc.querySelector('.theme-label').textContent === 'Futuristic mode', 'English minimal theme label');
+  choose('es-AR');
+  check(doc.querySelector('.theme-label').textContent === 'Modo futurista', 'Theme label follows Spanish');
+  check(doc.documentElement.dataset.theme === 'minimalista', 'Language preserves theme');
+  doc.querySelector('.theme-toggle').click();
+  check(doc.querySelector('.theme-label').textContent === 'Modo minimalista', 'Theme toggles after translation');
+  const toggle = doc.querySelector('#language-toggle');
+  toggle.click(); check(doc.activeElement.dataset.language === 'es-AR', 'Opening focuses active language');
+  doc.activeElement.dispatchEvent(new win.KeyboardEvent('keydown', { key:'ArrowDown', bubbles:true }));
+  check(doc.activeElement.dataset.language === 'en', 'Arrow keys navigate');
+  doc.activeElement.dispatchEvent(new win.KeyboardEvent('keydown', { key:'Escape', bubbles:true }));
+  check(doc.querySelector('#language-options').hidden && doc.activeElement === toggle, 'Escape closes and restores focus');
+  toggle.click(); doc.body.click(); check(doc.querySelector('#language-options').hidden, 'Outside click closes');
+  let prints = 0; win.print = () => { prints++; };
+  doc.querySelector('.print-button').click(); check(prints === 1, 'Export invokes current document print');
+  check(doc.querySelector('.print-button').textContent.includes('Guardar PDF'), 'Export label is translated');
+  choose('en');
+  loaded = load(); win.location.reload(); await loaded;
+  monitor();
+  check(frame.contentDocument.documentElement.lang === 'en', 'Saved language restored after reload');
+  for (const width of [320, 375, 700, 768, 1024, 1280]) {
+    frame.style.width = width + 'px';
+    await new Promise(resolve => setTimeout(resolve, 60));
+    for (const lang of ['pt-BR','es-AR','en']) {
+      choose(lang);
+      const d = frame.contentDocument;
+      const bar = d.querySelector('.topbar').getBoundingClientRect();
+      const picker = d.querySelector('#language-toggle').getBoundingClientRect();
+      const theme = d.querySelector('.theme-toggle').getBoundingClientRect();
+      const print = d.querySelector('.print-button').getBoundingClientRect();
+      check(picker.right <= theme.left && theme.right <= print.left && print.right <= bar.right, `${width}px ${lang}: controls do not overlap`);
+      d.querySelector('#language-toggle').click();
+      const menu = d.querySelector('#language-options').getBoundingClientRect();
+      check(menu.left >= 0 && menu.right <= width, `${width}px ${lang}: language menu stays within viewport`);
+      d.dispatchEvent(new frame.contentWindow.KeyboardEvent('keydown', { key:'Escape', bubbles:true }));
+      if (width <= 700) {
+        d.querySelector('.menu-toggle').click();
+        check(d.querySelector('.menu-toggle').getAttribute('aria-expanded') === 'true', `${width}px ${lang}: mobile navigation opens`);
+        d.querySelector('nav a[href="#resumo"]').click();
+        check(d.querySelector('.menu-toggle').getAttribute('aria-expanded') === 'false' && d.activeElement.id === 'resumo', `${width}px ${lang}: mobile navigation closes and focuses content`);
+      }
+    }
+  }
+  check(errors.length === 0, 'No JavaScript errors: ' + errors.join(', '));
+  frame.contentWindow.localStorage.removeItem('cv-language');
+  results.textContent = `SUCCESS: ${checks.length} checks\n` + checks.join('\n');
+})().catch(error => { results.textContent = 'FAIL: ' + error.stack + '\n' + checks.join('\n'); });
+</script></body></html>

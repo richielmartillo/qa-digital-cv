@@ -1,0 +1,9 @@
+# Local QA artifacts; the original résumé is deliberately not copied to assets.
+tmp/
+output/
+node_modules/
+.venv/
+__pycache__/
+*.log
+.DS_Store
+Thumbs.db
