@@ -31,7 +31,7 @@ function boot(saved, blocked = false) {
     return node;
   }
   const document = { documentElement: { dataset: { theme:'futurista' } }, handlers:{} };
-  for (const selector of ['#language-toggle','#language-options','#language-code','#language-status','.theme-label','.theme-toggle','.print-button']) nodes[selector] = element();
+  for (const selector of ['#language-toggle','#language-options','#language-code','#language-status','.theme-label','.theme-toggle','.download-button']) nodes[selector] = element();
   const buttons = ['pt-BR','es-AR','en'].map(lang => { const node = element(); node.dataset.language = lang; return node; });
   const heading = element(' Sobre mim '); heading.dataset.i18n = 't005';
   const aria = element(); aria.attrs['data-i18n-aria-label'] = 'languageLabel';
@@ -56,13 +56,13 @@ test('Portuguese default, complete language cycle, accessibility and saved prefe
   app.api.setLanguage('en'); assert.equal(boot(app.storage.value).api.language, 'en');
   assert.equal(boot('unknown').api.language, 'pt-BR');
 });
-test('restricted storage does not prevent translation; theme and print stay translated', () => {
+test('restricted storage does not prevent translation; theme and download stay translated', () => {
   const app = boot(null, true); app.api.setLanguage('en');
   app.document.documentElement.dataset.theme = 'minimalista'; app.api.refreshThemeLabel();
   assert.equal(app.nodes['.theme-label'].textContent, 'Futuristic mode');
   app.api.setLanguage('es-AR');
   assert.equal(app.nodes['.theme-label'].textContent, 'Modo futurista');
-  assert.match(app.nodes['.print-button'].attrs['aria-label'], /idioma seleccionado/);
+  assert.match(app.nodes['.download-button'].attrs['aria-label'], /portugués/);
   assert.equal(app.nodes['#language-status'].textContent, catalogs['es-AR'].languageChanged);
 });
 test('language picker supports focus, arrows, Escape, outside click and focus departure', () => {

@@ -48,8 +48,6 @@
     window.CVI18n?.refreshThemeLabel();
   });
 
-  document.querySelector('.print-button').addEventListener('click', () => window.print());
-
   // Expand native disclosures for print, then restore the reader's previous state.
   let disclosures = [];
   window.addEventListener('beforeprint', () => {

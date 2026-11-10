@@ -21,7 +21,7 @@ function coverage(lang) {
   const doc = frame.contentDocument;
   const dict = frame.contentWindow.CV_LOCALES[lang];
   doc.querySelectorAll('[data-i18n]').forEach(element => {
-    if (element.matches('.theme-label,.print-button')) return;
+    if (element.matches('.theme-label,.download-button')) return;
     element.dataset.i18n.split(' ').forEach(key => {
       check([...element.childNodes].some(node => node.nodeType === 3 && node.textContent.trim() === dict[key]), `${lang}: ${key}`);
     });
@@ -55,8 +55,16 @@ function coverage(lang) {
   check(doc.querySelector('#language-options').hidden && doc.activeElement === toggle, 'Escape closes and restores focus');
   toggle.click(); doc.body.click(); check(doc.querySelector('#language-options').hidden, 'Outside click closes');
   let prints = 0; win.print = () => { prints++; };
-  doc.querySelector('.print-button').click(); check(prints === 1, 'Export invokes current document print');
-  check(doc.querySelector('.print-button').textContent.includes('Guardar PDF'), 'Export label is translated');
+  const download = doc.querySelector('.download-button');
+  check(download.hasAttribute('download'), 'Native download attribute');
+  check(download.getAttribute('href') === 'assets/cv/Richard_Marlon_Balestrim_CV.pdf', 'Relative official PDF URL');
+  check(doc.querySelector('#download-note').textContent.includes('Portugués'), 'Portuguese PDF disclosed in Spanish');
+  const response = await fetch(download.href);
+  check(response.ok && response.headers.get('content-type').includes('pdf'), 'Official PDF accessible over HTTP');
+  const bytes = await response.arrayBuffer();
+  const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(b => b.toString(16).padStart(2,'0')).join('');
+  check(digest === '55aeac1f9e297b7415038956cc07b06bde70345ba00f92853a2b759736e02788', 'Served PDF SHA-256 equals official original');
+  check(prints === 0, 'Download does not invoke print');
   choose('en');
   loaded = load(); win.location.reload(); await loaded;
   monitor();
@@ -67,10 +75,11 @@ function coverage(lang) {
     for (const lang of ['pt-BR','es-AR','en']) {
       choose(lang);
       const d = frame.contentDocument;
+      check(d.documentElement.scrollWidth <= width, `${width}px ${lang}: no horizontal overflow`);
       const bar = d.querySelector('.topbar').getBoundingClientRect();
       const picker = d.querySelector('#language-toggle').getBoundingClientRect();
       const theme = d.querySelector('.theme-toggle').getBoundingClientRect();
-      const print = d.querySelector('.print-button').getBoundingClientRect();
+      const print = d.querySelector('.download-button').getBoundingClientRect();
       check(picker.right <= theme.left && theme.right <= print.left && print.right <= bar.right, `${width}px ${lang}: controls do not overlap`);
       d.querySelector('#language-toggle').click();
       const menu = d.querySelector('#language-options').getBoundingClientRect();

@@ -39,9 +39,9 @@
     document.querySelector('#language-code').textContent = { 'pt-BR': 'PT', 'es-AR': 'ES', en: 'EN' }[next];
     buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === next)));
     refreshThemeLabel();
-    const print = document.querySelector('.print-button');
-    print.setAttribute('title', t('printHint'));
-    print.setAttribute('aria-label', t('printHint'));
+    const download = document.querySelector('.download-button');
+    download.setAttribute('title', t('downloadHint'));
+    download.setAttribute('aria-label', t('downloadHint'));
     if (persist) { try { window.localStorage.setItem(storageKey, next); } catch { /* Private/restricted storage: translation still works. */ } }
     if (announce) document.querySelector('#language-status').textContent = t('languageChanged');
   }

@@ -80,9 +80,9 @@ test('all internal links resolve to unique IDs; seven sections exist', () => {
   assert.equal((html.match(/<section /g) ?? []).length, 7);
 });
 
-test('public resources are local, present, and do not link to the source PDF', () => {
+test('public resources are local and present, including the official PDF', () => {
   for (const [, path] of html.matchAll(/(?:src|href)="((?:css|js|assets)\/[^"#]+)"/g)) assert.ok(existsSync(resolve(rootDir, path)), path);
-  assert.doesNotMatch(html, /(?:src|href)="[^"]*\.pdf/i);
+  assert.match(html, /href="assets\/cv\/Richard_Marlon_Balestrim_CV\.pdf" download=/);
   assert.doesNotMatch(html, /<(?:iframe|form)\b|https?:\/\/[^"\s]+\.(?:js|css)(?:["?])/i);
 });
 
@@ -131,10 +131,11 @@ test('theme toggle cycles appearance and accessible state', () => {
   assert.equal(app.nodes['.theme-toggle'].getAttribute('aria-pressed'), 'false');
 });
 
-test('download invokes print; printing expands and restores courses', () => {
+test('native printing still expands and restores courses without a download print handler', () => {
   const app = boot();
   app.nodes['.print-button'].fire('click');
-  assert.equal(app.prints, 1);
+  assert.equal(app.prints, 0);
+  assert.doesNotMatch(script, /window\.print\s*\(/);
   app.window.fire('beforeprint');
   assert.ok(app.details.every(detail => detail.open));
   app.window.fire('afterprint');
