@@ -82,7 +82,7 @@ test('all internal links resolve to unique IDs; seven sections exist', () => {
 
 test('public resources are local and present, including the official PDF', () => {
   for (const [, path] of html.matchAll(/(?:src|href)="((?:css|js|assets)\/[^"#]+)"/g)) assert.ok(existsSync(resolve(rootDir, path)), path);
-  assert.match(html, /href="assets\/cv\/Richard_Marlon_Balestrim_CV\.pdf" download=/);
+  assert.match(html, /href="assets\/cv\/Richard_Marlon_Balestrim_CV_PT\.pdf" download=/);
   assert.doesNotMatch(html, /<(?:iframe|form)\b|https?:\/\/[^"\s]+\.(?:js|css)(?:["?])/i);
 });
 

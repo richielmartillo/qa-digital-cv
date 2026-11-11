@@ -148,5 +148,6 @@
   "downloadNote": "PDF original · Português · 2 páginas",
   "downloadHint": "Baixar currículo oficial em português, 2 páginas",
   "phoneLabel": "CELULAR",
-  "emailLabel": "E-MAIL"
+  "emailLabel": "E-MAIL",
+  "downloadUnavailable": "A versão em português está indisponível no momento. Não foi possível obter o PDF. Tente novamente mais tarde."
 }

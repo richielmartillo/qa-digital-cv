@@ -39,7 +39,7 @@ function boot(saved, blocked = false) {
   document.querySelectorAll = selector => selector === '[data-language]' ? buttons : selector === '[data-i18n]' ? [heading] : selector === '[data-i18n-aria-label]' ? [aria] : [];
   document.addEventListener = (key, fn) => document.handlers[key] = fn;
   const storage = { value:saved, getItem() { if (blocked) throw Error(); return this.value; }, setItem(key,value) { if (blocked) throw Error(); this.value=value; } };
-  const window = { CV_LOCALES:catalogs, localStorage:storage };
+  const window = { CV_LOCALES:catalogs, localStorage:storage, CVDownload:{ setLanguage(lang) { nodes['.download-button'].selectedLanguage = lang; } } };
   vm.runInNewContext(read('js/i18n.js'), { window, document });
   return { api:window.CVI18n, document, nodes, buttons, heading, aria, storage };
 }
@@ -50,6 +50,7 @@ test('Portuguese default, complete language cycle, accessibility and saved prefe
     assert.equal(app.heading.childNodes[0].textContent.trim(), label);
     assert.equal(app.document.documentElement.lang, lang);
     assert.equal(app.storage.value, lang);
+    assert.equal(app.nodes['.download-button'].selectedLanguage, lang);
     assert.equal(app.aria.attrs['aria-label'], catalogs[lang].languageLabel);
     assert.ok(app.nodes['#language-options'].hidden);
   }
@@ -62,7 +63,7 @@ test('restricted storage does not prevent translation; theme and download stay t
   assert.equal(app.nodes['.theme-label'].textContent, 'Futuristic mode');
   app.api.setLanguage('es-AR');
   assert.equal(app.nodes['.theme-label'].textContent, 'Modo futurista');
-  assert.match(app.nodes['.download-button'].attrs['aria-label'], /portugués/);
+  assert.match(app.nodes['.download-button'].attrs['aria-label'], /español/);
   assert.equal(app.nodes['#language-status'].textContent, catalogs['es-AR'].languageChanged);
 });
 test('language picker supports focus, arrows, Escape, outside click and focus departure', () => {

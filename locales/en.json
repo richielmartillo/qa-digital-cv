@@ -145,8 +145,9 @@
   "internationalTwo": "Professional experience at the Congress in Buenos Aires, working on the restoration, maintenance and conservation of historical spaces.",
   "internationalThree": "Multicultural experience across Brazil and Argentina, fluent in Spanish and Portuguese.",
   "projectVersioning": "Project organization and version control with Git/GitHub.",
-  "downloadNote": "Original PDF · Portuguese · 2 pages",
-  "downloadHint": "Download official résumé in Portuguese, 2 pages",
+  "downloadNote": "PDF · English · 2 pages",
+  "downloadHint": "Download résumé in English, 2 pages",
   "phoneLabel": "MOBILE",
-  "emailLabel": "EMAIL"
+  "emailLabel": "EMAIL",
+  "downloadUnavailable": "The English version is currently unavailable. The PDF could not be retrieved. Please try again later."
 }

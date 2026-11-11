@@ -55,16 +55,42 @@ function coverage(lang) {
   check(doc.querySelector('#language-options').hidden && doc.activeElement === toggle, 'Escape closes and restores focus');
   toggle.click(); doc.body.click(); check(doc.querySelector('#language-options').hidden, 'Outside click closes');
   let prints = 0; win.print = () => { prints++; };
-  const download = doc.querySelector('.download-button');
-  check(download.hasAttribute('download'), 'Native download attribute');
-  check(download.getAttribute('href') === 'assets/cv/Richard_Marlon_Balestrim_CV.pdf', 'Relative official PDF URL');
-  check(doc.querySelector('#download-note').textContent.includes('Portugués'), 'Portuguese PDF disclosed in Spanish');
-  const response = await fetch(download.href);
-  check(response.ok && response.headers.get('content-type').includes('pdf'), 'Official PDF accessible over HTTP');
-  const bytes = await response.arrayBuffer();
-  const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(b => b.toString(16).padStart(2,'0')).join('');
-  check(digest === '55aeac1f9e297b7415038956cc07b06bde70345ba00f92853a2b759736e02788', 'Served PDF SHA-256 equals official original');
-  check(prints === 0, 'Download does not invoke print');
+  const expectedFiles = { 'pt-BR':'PT', 'es-AR':'ES', en:'EN' };
+  const sha256 = async bytes => [...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(b=>b.toString(16).padStart(2,'0')).join('');
+  // Exercise the real click handler; intercept only the final browser save action.
+  async function exerciseDownload(lang) {
+    choose(lang);
+    const d = frame.contentDocument;
+    const button = d.querySelector('.download-button');
+    const filename = `Richard_Marlon_Balestrim_CV_${expectedFiles[lang]}.pdf`;
+    check(button.getAttribute('href') === 'assets/cv/'+filename, lang+': matching relative URL');
+    check(button.download === filename && button.hreflang === lang, lang+': download filename and language');
+    const response = await fetch(button.href);
+    check(response.ok && response.headers.get('content-type').includes('pdf'), lang+': PDF accessible over HTTP');
+    const expected = await response.arrayBuffer();
+    const saved = await new Promise((resolve,reject) => {
+      const timeout = setTimeout(()=>{d.removeEventListener('click',capture,true);reject(Error('Download timed out: '+lang));},5000);
+      function capture(event) {
+        const a = event.target.closest('a');
+        if (!a?.href.startsWith('blob:')) return;
+        event.preventDefault(); clearTimeout(timeout);d.removeEventListener('click',capture,true);
+        fetch(a.href).then(r=>r.arrayBuffer()).then(bytes=>resolve({bytes,filename:a.download}),reject);
+      }
+      d.addEventListener('click',capture,true);button.click();
+    });
+    check(saved.filename === filename, lang+': click saves matching filename');
+    check(await sha256(saved.bytes) === await sha256(expected),lang+': click preserves file bytes');
+    if(lang === 'pt-BR') check(await sha256(saved.bytes) === '55aeac1f9e297b7415038956cc07b06bde70345ba00f92853a2b759736e02788','Portuguese original SHA-256');
+  }
+  for (const lang of Object.keys(expectedFiles)) await exerciseDownload(lang);
+  choose('es-AR');
+  const originalFetch=win.fetch;
+  win.fetch=async()=>({ok:false,status:404});
+  doc.querySelector('.download-button').click();
+  await new Promise(resolve=>setTimeout(resolve,50));
+  check(!doc.querySelector('#download-status').hidden && doc.querySelector('#download-status').textContent===win.CV_LOCALES['es-AR'].downloadUnavailable,'Missing PDF displays Spanish error');
+  win.fetch=originalFetch;
+  check(prints === 0, 'Downloads never invoke print');
   choose('en');
   loaded = load(); win.location.reload(); await loaded;
   monitor();
@@ -75,6 +101,7 @@ function coverage(lang) {
     for (const lang of ['pt-BR','es-AR','en']) {
       choose(lang);
       const d = frame.contentDocument;
+      check(d.querySelector('.download-button').getAttribute('href').endsWith('_'+expectedFiles[lang]+'.pdf'), `${width}px ${lang}: matching download`);
       check(d.documentElement.scrollWidth <= width, `${width}px ${lang}: no horizontal overflow`);
       const bar = d.querySelector('.topbar').getBoundingClientRect();
       const picker = d.querySelector('#language-toggle').getBoundingClientRect();
@@ -93,6 +120,8 @@ function coverage(lang) {
       }
     }
   }
+  frame.style.width = '375px';
+  for (const lang of Object.keys(expectedFiles)) await exerciseDownload(lang);
   check(errors.length === 0, 'No JavaScript errors: ' + errors.join(', '));
   frame.contentWindow.localStorage.removeItem('cv-language');
   results.textContent = `SUCCESS: ${checks.length} checks\n` + checks.join('\n');

@@ -1,0 +1,194 @@
+{
+  "es-AR": {
+    "relocation": "Disponibilidad para reubicación",
+    "objectiveLabel": "OBJETIVO PROFESIONAL",
+    "objective": "Analista de Calidad de Software",
+    "summaryLabel": "RESUMEN DE CALIFICACIONES",
+    "summary": "Profesional de Calidad de Software, con formación en curso en EBAC - Escola Britânica de Artes Criativas e Tecnologia. Perfil analítico, organizado y atento a los detalles, con experiencia práctica en pruebas de software, desarrollo de proyectos de automatización y participación en proyectos internacionales de crowdtesting a través de uTest.",
+    "qualifications": [
+      "<b>Pruebas de software:</b> manuales | funcionales | exploratorias | automatizadas (E2E) | API | planificación y gestión de pruebas | casos de prueba | documentación de errores",
+      "<b>Herramientas y tecnologías:</b> Cypress | Cucumber | Postman | Appium | WebdriverIO | Android Studio | Git/GitHub | Charles Proxy | JavaScript | HTML/CSS | SQL y MongoDB.",
+      "<b>Automatización y CI/CD:</b> pruebas automatizadas | comandos personalizados con Cypress | datos de prueba | control de versiones de código | estructuración de proyectos de automatización",
+      "<b>Conocimientos complementarios:</b> Docker | Jenkins | k6 | Apache JMeter | integración continua | pipelines de pruebas y pruebas de rendimiento."
+    ],
+    "educationLabel": "FORMACIÓN",
+    "education": [
+      "Ingeniero de Calidad de Software - Curso de formación profesional - EBAC - Escola Britânica de Artes Criativas e Tecnologia - En curso.",
+      "Educación secundaria completa - Escuela de Educación Secundaria N° 13 Mar del Tuyú - La Costa"
+    ],
+    "experienceLabel": "EXPERIENCIA PROFESIONAL",
+    "jobs": [
+      {
+        "company": "Freelancer - uTest",
+        "period": "Agosto/2026 - Actualidad",
+        "role": "Proyectos puntuales de pruebas de software (Crowdtesting)",
+        "bullets": [
+          "Ejecución de pruebas funcionales y exploratorias en aplicaciones web y móviles (Android).",
+          "Identificación, reproducción y documentación de errores, con capturas de pantalla, videos y logs como evidencia.",
+          "Ejecución de casos de prueba y elaboración de informes de errores.",
+          "Uso de herramientas como Chrome DevTools, ADB, Android Logcat y Android Studio."
+        ]
+      },
+      {
+        "company": "Anthor - Maringá/PR",
+        "period": "2022 - Actualidad",
+        "role": "Repositor de Supermercado / Auxiliar Operativo",
+        "bullets": [
+          "Reposición y organización de mercadería en supermercados, con control visual de góndolas, fechas de vencimiento y precios.",
+          "Apoyo en el depósito, preparación de productos y abastecimiento de las áreas de venta.",
+          "Trabajo con agilidad, atención a los detalles, responsabilidad y adaptabilidad a distintas rutinas operativas."
+        ]
+      },
+      {
+        "company": "Honorable Senado de la Nación Argentina",
+        "period": "2016 - 2022",
+        "note": "Empresa tercerizada / prestación de servicios",
+        "role": "Restaurador de Patrimonio Histórico",
+        "bullets": [
+          "Restauración y conservación del patrimonio histórico, con foco en pintura, terminaciones, limpieza de superficies y preservación de estructuras antiguas.",
+          "Apoyo a las tareas de mantenimiento patrimonial, siguiendo procedimientos técnicos, organizando el entorno y cuidando los materiales históricos."
+        ]
+      }
+    ],
+    "projectsLabel": "PROYECTOS RELEVANTES",
+    "projectTitle": "Hub de Leitura - Automatización y Pruebas de API REST",
+    "projectContext": "EBAC | Proyectos de estudio - 2026",
+    "projectBullets": [
+      "Desarrollo y ejecución de pruebas de API REST con Cypress, Postman y JavaScript, validando funciones de autenticación, gestión de usuarios, catálogo de libros y reservas.",
+      "Implementación de escenarios positivos y negativos, con validación de estados HTTP, respuestas de API y reglas de negocio, utilizando fixtures, collections, environments y datos dinámicos.",
+      "Organización y control de versiones de los proyectos con Git/GitHub."
+    ],
+    "repositoriesLabel": "Repositorios en GitHub:",
+    "repositories": [
+      "Hub de Leitura - API - Pruebas Automatizadas con Cypress",
+      "Hub de Leitura - Pruebas de API con Postman"
+    ],
+    "languagesLabel": "IDIOMAS",
+    "languages": [
+      "Portugués: fluido",
+      "Español: nativo",
+      "Inglés: intermedio"
+    ],
+    "skillsLabel": "COMPETENCIAS",
+    "skills": [
+      "JavaScript | TypeScript | HTML | CSS | React | Python. Pruebas manuales | pruebas automatizadas | Cypress | Appium | Postman | Charles Proxy | k6 | JMeter",
+      "SQL | NoSQL | MongoDB",
+      "Git/GitHub",
+      "Docker | Jenkinsfile | pruebas de API | pruebas end-to-end | documentación de errores y validación de reglas de negocio."
+    ],
+    "coursesLabel": "CURSOS / ACTIVIDADES COMPLEMENTARIAS",
+    "courses": [
+      "Programador básico - Escuela de Educación Secundaria N° 13 Mar del Tuyú - La Costa - 2009",
+      "Aprendé TypeScript en 7 días con proyectos prácticos - Udemy - 2025",
+      "JavaScript de Cero a Avanzado - Udemy - 2025",
+      "Formación en Desarrollo Web Completo + 50 Proyectos Reales - Udemy - 2025",
+      "Aprendé Programación en Python para principiantes - Udemy - 2025",
+      "Ingeniería de Prompts con IA - Udemy - 2025",
+      "Plan de carrera - EBAC - 2025",
+      "Inteligencia Artificial - EBAC - 2025"
+    ],
+    "internationalLabel": "EXPERIENCIA INTERNACIONAL",
+    "international": [
+      "Residencia en Argentina durante aproximadamente 25 años, con experiencia cultural, educativa y profesional en la región de Buenos Aires.",
+      "Experiencia profesional en el Congreso de Buenos Aires, en actividades de restauración, mantenimiento y conservación de espacios históricos.",
+      "Experiencia multicultural Brasil-Argentina, con fluidez en español y portugués."
+    ],
+    "location": "Maringá - Paraná, Brasil"
+  },
+  "en": {
+    "relocation": "Willing to relocate",
+    "objectiveLabel": "CAREER OBJECTIVE",
+    "objective": "Software Quality Analyst",
+    "summaryLabel": "SUMMARY OF QUALIFICATIONS",
+    "summary": "Software Quality professional currently studying at EBAC - Escola Britânica de Artes Criativas e Tecnologia. Analytical, organized and detail-oriented, with practical experience in software testing, developing automation projects and participating in international crowdtesting projects through uTest.",
+    "qualifications": [
+      "<b>Software testing:</b> manual | functional | exploratory | automated (E2E) | API | test planning and management | test cases | bug documentation",
+      "<b>Tools and technologies:</b> Cypress | Cucumber | Postman | Appium | WebdriverIO | Android Studio | Git/GitHub | Charles Proxy | JavaScript | HTML/CSS | SQL and MongoDB.",
+      "<b>Automation and CI/CD:</b> automated testing | custom Cypress commands | test data | code version control | structuring automation projects",
+      "<b>Additional knowledge:</b> Docker | Jenkins | k6 | Apache JMeter | continuous integration | test pipelines and performance testing."
+    ],
+    "educationLabel": "EDUCATION",
+    "education": [
+      "Software Quality Engineer - Vocational Training Course - EBAC - Escola Britânica de Artes Criativas e Tecnologia - In progress.",
+      "Completed Secondary Education - Escuela de Educación Secundaria N° 13 Mar del Tuyú - La Costa"
+    ],
+    "experienceLabel": "PROFESSIONAL EXPERIENCE",
+    "jobs": [
+      {
+        "company": "Freelancer - uTest",
+        "period": "August/2026 - Present",
+        "role": "Short-term software testing projects (Crowdtesting)",
+        "bullets": [
+          "Executed functional and exploratory tests on web and mobile (Android) applications.",
+          "Identified, reproduced and documented bugs, providing screenshots, videos and logs as evidence.",
+          "Executed test cases and prepared bug reports.",
+          "Used tools such as Chrome DevTools, ADB, Android Logcat and Android Studio."
+        ]
+      },
+      {
+        "company": "Anthor - Maringá/PR",
+        "period": "2022 - Present",
+        "role": "Supermarket Stock Clerk / Operations Assistant",
+        "bullets": [
+          "Replenished and organized supermarket merchandise, visually checking shelves, expiration dates and pricing.",
+          "Supported stockroom operations, product picking and replenishment of sales areas.",
+          "Worked efficiently, with attention to detail, responsibility and adaptability to different operational routines."
+        ]
+      },
+      {
+        "company": "Honorable Senado de la Nación Argentina",
+        "period": "2016 - 2022",
+        "note": "Third-party contractor / service provision",
+        "role": "Historic Heritage Restorer",
+        "bullets": [
+          "Restored and conserved historic heritage, focusing on painting, finishing, surface cleaning and preservation of old structures.",
+          "Supported heritage maintenance routines, following technical procedures, organizing the work environment and caring for historical materials."
+        ]
+      }
+    ],
+    "projectsLabel": "RELEVANT PROJECTS",
+    "projectTitle": "Hub de Leitura - REST API Automation and Testing",
+    "projectContext": "EBAC | Study projects - 2026",
+    "projectBullets": [
+      "Developed and executed REST API tests with Cypress, Postman and JavaScript, validating authentication, user management, book catalog and reservation features.",
+      "Implemented positive and negative scenarios, validating HTTP status codes, API responses and business rules using fixtures, collections, environments and dynamic data.",
+      "Organized and version-controlled projects with Git/GitHub."
+    ],
+    "repositoriesLabel": "GitHub repositories:",
+    "repositories": [
+      "Hub de Leitura - API - Automated Testing with Cypress",
+      "Hub de Leitura - API Testing with Postman"
+    ],
+    "languagesLabel": "LANGUAGES",
+    "languages": [
+      "Portuguese: fluent",
+      "Spanish: native",
+      "English: intermediate"
+    ],
+    "skillsLabel": "SKILLS",
+    "skills": [
+      "JavaScript | TypeScript | HTML | CSS | React | Python. Manual testing | automated testing | Cypress | Appium | Postman | Charles Proxy | k6 | JMeter",
+      "SQL | NoSQL | MongoDB",
+      "Git/GitHub",
+      "Docker | Jenkinsfile | API testing | end-to-end testing | bug documentation and business rule validation."
+    ],
+    "coursesLabel": "ADDITIONAL COURSES / ACTIVITIES",
+    "courses": [
+      "Basic Programmer - Escuela de Educación Secundaria N° 13 Mar del Tuyú - La Costa - 2009",
+      "Learn TypeScript in 7 Days with Practical Projects - Udemy - 2025",
+      "JavaScript from Beginner to Advanced - Udemy - 2025",
+      "Complete Web Development Training + 50 Real Projects - Udemy - 2025",
+      "Learn Python Programming for Beginners - Udemy - 2025",
+      "Prompt Engineering with AI - Udemy - 2025",
+      "Career Planning - EBAC - 2025",
+      "Artificial Intelligence - EBAC - 2025"
+    ],
+    "internationalLabel": "INTERNATIONAL EXPERIENCE",
+    "international": [
+      "Lived in Argentina for approximately 25 years, gaining cultural, educational and professional experience in the Buenos Aires region.",
+      "Professional experience at the Congress in Buenos Aires, working on the restoration, maintenance and conservation of historic spaces.",
+      "Multicultural experience across Brazil and Argentina, fluent in Spanish and Portuguese."
+    ],
+    "location": "Maringá - Paraná, Brazil"
+  }
+}

@@ -7,7 +7,7 @@ const officialHash = '55aeac1f9e297b7415038956cc07b06bde70345ba00f92853a2b759736
 const hash = bytes => createHash('sha256').update(bytes).digest('hex');
 test('original and downloadable copy are byte-identical to the reviewed two-page PDF', () => {
   const source = read('Richard Balestrim (Atualizado).docx.pdf');
-  const copy = read('assets/cv/Richard_Marlon_Balestrim_CV.pdf');
+  const copy = read('assets/cv/Richard_Marlon_Balestrim_CV_PT.pdf');
   assert.equal(hash(source), officialHash);
   assert.equal(hash(copy), officialHash);
   assert.deepEqual(copy, source);
@@ -25,13 +25,13 @@ test('official facts and all complementary courses remain visible in Portuguese 
 test('download works without JS and resolves below a GitHub Pages repository path', () => {
   const html = read('index.html').toString();
   const tag = html.match(/<a class="download-button"[^>]+>/)[0];
-  assert.match(tag, /download="Richard_Marlon_Balestrim_CV.pdf"/);
+  assert.match(tag, /download="Richard_Marlon_Balestrim_CV_PT.pdf"/);
   assert.doesNotMatch(tag, /js-control|onclick|target=/);
   const href = tag.match(/href="([^"]+)"/)[1];
-  assert.equal(new URL(href,'https://richielmartillo.github.io/qa-digital-cv/').pathname, '/qa-digital-cv/assets/cv/Richard_Marlon_Balestrim_CV.pdf');
+  assert.equal(new URL(href,'https://richielmartillo.github.io/qa-digital-cv/').pathname, '/qa-digital-cv/assets/cv/Richard_Marlon_Balestrim_CV_PT.pdf');
   for (const lang of ['pt-BR','es-AR','en']) {
     const cat = JSON.parse(read('locales/'+lang+'.json'));
-    assert.match(cat.downloadNote, /Português|Portugués|Portuguese/);
+    assert.match(cat.downloadNote, /Português|Español|English/);
     for (const key of ['internationalOne','internationalTwo','internationalThree','projectVersioning']) assert.ok(cat[key]);
   }
 });

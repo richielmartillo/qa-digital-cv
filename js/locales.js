@@ -150,7 +150,8 @@ window.CV_LOCALES = {
     "downloadNote": "PDF original · Português · 2 páginas",
     "downloadHint": "Baixar currículo oficial em português, 2 páginas",
     "phoneLabel": "CELULAR",
-    "emailLabel": "E-MAIL"
+    "emailLabel": "E-MAIL",
+    "downloadUnavailable": "A versão em português está indisponível no momento. Não foi possível obter o PDF. Tente novamente mais tarde."
   },
   "es-AR": {
     "t000": "Richard Marlon Balestrim — Calidad de Software",
@@ -299,10 +300,11 @@ window.CV_LOCALES = {
     "internationalTwo": "Experiencia profesional en el Congreso de Buenos Aires, en actividades de restauración, mantenimiento y conservación de espacios históricos.",
     "internationalThree": "Experiencia multicultural Brasil-Argentina, con fluidez en español y portugués.",
     "projectVersioning": "Organización y control de versiones de los proyectos con Git/GitHub.",
-    "downloadNote": "PDF original · Portugués · 2 páginas",
-    "downloadHint": "Descargar CV oficial en portugués, 2 páginas",
+    "downloadNote": "PDF · Español · 2 páginas",
+    "downloadHint": "Descargar CV en español, 2 páginas",
     "phoneLabel": "CELULAR",
-    "emailLabel": "CORREO ELECTRÓNICO"
+    "emailLabel": "CORREO ELECTRÓNICO",
+    "downloadUnavailable": "La versión en español no está disponible en este momento. No se pudo obtener el PDF. Volvé a intentarlo más tarde."
   },
   "en": {
     "t000": "Richard Marlon Balestrim — Software Quality",
@@ -451,9 +453,10 @@ window.CV_LOCALES = {
     "internationalTwo": "Professional experience at the Congress in Buenos Aires, working on the restoration, maintenance and conservation of historical spaces.",
     "internationalThree": "Multicultural experience across Brazil and Argentina, fluent in Spanish and Portuguese.",
     "projectVersioning": "Project organization and version control with Git/GitHub.",
-    "downloadNote": "Original PDF · Portuguese · 2 pages",
-    "downloadHint": "Download official résumé in Portuguese, 2 pages",
+    "downloadNote": "PDF · English · 2 pages",
+    "downloadHint": "Download résumé in English, 2 pages",
     "phoneLabel": "MOBILE",
-    "emailLabel": "EMAIL"
+    "emailLabel": "EMAIL",
+    "downloadUnavailable": "The English version is currently unavailable. The PDF could not be retrieved. Please try again later."
   }
 };

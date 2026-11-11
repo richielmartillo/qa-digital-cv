@@ -145,8 +145,9 @@
   "internationalTwo": "Experiencia profesional en el Congreso de Buenos Aires, en actividades de restauración, mantenimiento y conservación de espacios históricos.",
   "internationalThree": "Experiencia multicultural Brasil-Argentina, con fluidez en español y portugués.",
   "projectVersioning": "Organización y control de versiones de los proyectos con Git/GitHub.",
-  "downloadNote": "PDF original · Portugués · 2 páginas",
-  "downloadHint": "Descargar CV oficial en portugués, 2 páginas",
+  "downloadNote": "PDF · Español · 2 páginas",
+  "downloadHint": "Descargar CV en español, 2 páginas",
   "phoneLabel": "CELULAR",
-  "emailLabel": "CORREO ELECTRÓNICO"
+  "emailLabel": "CORREO ELECTRÓNICO",
+  "downloadUnavailable": "La versión en español no está disponible en este momento. No se pudo obtener el PDF. Volvé a intentarlo más tarde."
 }
