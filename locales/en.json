@@ -147,7 +147,5 @@
   "projectVersioning": "Project organization and version control with Git/GitHub.",
   "downloadNote": "PDF · English · 2 pages",
   "downloadHint": "Download résumé in English, 2 pages",
-  "phoneLabel": "MOBILE",
-  "emailLabel": "EMAIL",
   "downloadUnavailable": "The English version is currently unavailable. The PDF could not be retrieved. Please try again later."
 }

@@ -27,6 +27,9 @@ function coverage(lang) {
     });
   });
   check(!/\bt\d{3}\b/.test(doc.body.innerText), 'No translation keys visible');
+  check(!doc.querySelector('a[href^="mailto:"], a[href^="tel:"]'), lang + ': no personal contact links');
+  check(!/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(doc.documentElement.outerHTML), lang + ': no email in DOM');
+  check(!/\+?55[\s()-]*44[\s()-]*9(?:[\s()-]*\d){8}|44[\s()-]*9(?:[\s()-]*\d){8}/.test(doc.documentElement.outerHTML), lang + ': no personal phone in DOM');
 }
 (async () => {
   await load();

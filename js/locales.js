@@ -149,8 +149,6 @@ window.CV_LOCALES = {
     "projectVersioning": "Organização e versionamento dos projetos com Git/GitHub.",
     "downloadNote": "PDF original · Português · 2 páginas",
     "downloadHint": "Baixar currículo oficial em português, 2 páginas",
-    "phoneLabel": "CELULAR",
-    "emailLabel": "E-MAIL",
     "downloadUnavailable": "A versão em português está indisponível no momento. Não foi possível obter o PDF. Tente novamente mais tarde."
   },
   "es-AR": {
@@ -302,8 +300,6 @@ window.CV_LOCALES = {
     "projectVersioning": "Organización y control de versiones de los proyectos con Git/GitHub.",
     "downloadNote": "PDF · Español · 2 páginas",
     "downloadHint": "Descargar CV en español, 2 páginas",
-    "phoneLabel": "CELULAR",
-    "emailLabel": "CORREO ELECTRÓNICO",
     "downloadUnavailable": "La versión en español no está disponible en este momento. No se pudo obtener el PDF. Volvé a intentarlo más tarde."
   },
   "en": {
@@ -455,8 +451,6 @@ window.CV_LOCALES = {
     "projectVersioning": "Project organization and version control with Git/GitHub.",
     "downloadNote": "PDF · English · 2 pages",
     "downloadHint": "Download résumé in English, 2 pages",
-    "phoneLabel": "MOBILE",
-    "emailLabel": "EMAIL",
     "downloadUnavailable": "The English version is currently unavailable. The PDF could not be retrieved. Please try again later."
   }
 };

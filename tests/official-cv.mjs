@@ -15,12 +15,10 @@ test('original and downloadable copy are byte-identical to the reviewed two-page
 });
 test('official facts and all complementary courses remain visible in Portuguese HTML', () => {
   const html = read('index.html').toString();
-  for (const fact of ['Richard Marlon','Balestrim','44 999430660','richardbalestrim8@gmail.com','Agosto/2026','2022','2016','uTest','Anthor','Honorable Senado de la Nación Argentina','25 anos','Buenos Aires','2009','2025','2026','Cypress','Cucumber','Postman','Appium','WebdriverIO','Charles Proxy','Docker','Jenkins','k6','JMeter','TypeScript','React','Python','SQL','MongoDB','ADB','Logcat']) assert.ok(html.includes(fact), fact);
+  for (const fact of ['Richard Marlon','Balestrim','Agosto/2026','2022','2016','uTest','Anthor','Honorable Senado de la Nación Argentina','25 anos','Buenos Aires','2009','2025','2026','Cypress','Cucumber','Postman','Appium','WebdriverIO','Charles Proxy','Docker','Jenkins','k6','JMeter','TypeScript','React','Python','SQL','MongoDB','ADB','Logcat']) assert.ok(html.includes(fact), fact);
   const pt = JSON.parse(read('locales/pt-BR.json'));
   for (let n=113;n<=120;n++) assert.ok(html.includes(pt['t'+n]));
   assert.doesNotMatch(html, /em transição de carreira/i);
-  assert.match(html, /href="tel:\+5544999430660"/);
-  assert.match(html, /href="mailto:richardbalestrim8@gmail.com"/);
 });
 test('download works without JS and resolves below a GitHub Pages repository path', () => {
   const html = read('index.html').toString();
